@@ -10,7 +10,7 @@ def readTextFile(filename):
 def readPDFFile(filename):
     text = ""
     pdfreader = PyPDF2.PdfReader(filename)
-    for page in range(len(pdfreader.pages)-40):
+    for page in range(len(pdfreader.pages)):
         content = pdfreader.pages[page]
         text = text + content.extract_text()
     return text
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     audioBook = gTTS(text, tld=tld, slow=False)
     audioBook.save(str(filename.split(".")[0]) + ".mp3")
 
-    filename = "10 Vertebrates F.pdf"
-    text = readPDFFile(filename)
+    # filename = "10 Vertebrates F.pdf"
+    # text = readPDFFile(filename)
     # audioBook = gTTS(text, tld=tld, slow=False)
     # audioBook.save(str(filename.split(".")[0]) + ".mp3")
